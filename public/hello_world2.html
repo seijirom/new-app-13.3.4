@@ -1,0 +1,11 @@
+<html>
+  <script src="https://cdn.jsdelivr.net/npm/ruby-3_2-wasm-wasi@1.0.1/dist/browser.script.iife.js"></script>
+  <script type="text/ruby">
+    require 'js'
+    message = JS.global[:document].call(:getElementById, 'message')
+    message[:innerText] = "Hello, world!"
+  </script>
+  <body>
+    <div id="message"></div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<html lang="ja">
+<head>
+    <title>RubyWasm</title>
+    <meta charset="utf-8" />
+</head>
+  <script src="https://cdn.jsdelivr.net/npm/ruby-head-wasm-wasi@latest/dist/browser.script.iife.js"></script>
+<body>
+    <div id="content">
+        <button id="button">Post</button>
+        <input type="text" id="message"></input>
+        <div id="logs"></div>
+    </div>
+</body>
+<script type="text/ruby" charset="UTF-8">
+    require "js"
+
+    document = JS.global[:document]
+    button = document.getElementById 'button'
+    logs = document.getElementById 'logs'
+    message = document.getElementById 'message'
+
+    button.addEventListener "click" do |e|
+        text = "#{Time.now.to_s} : #{message[:value]}+NG?"
+        tag_p = document.createElement('p');
+        tag_p.append(document.createTextNode(text));
+        logs.append(tag_p)
+    end
+  </script>
+</html>
