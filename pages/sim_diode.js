@@ -7,9 +7,11 @@ const PlotIdVd = dynamic(() => import('./Plot_IdVd'), {
 })
 
 export async function getServerSideProps() {
-    console.log(`current directory is ${process.cwd()}`);
+    const cwd = process.cwd();
+    console.log(`current directory is ${cwd}`);
+    process.chdir('c:/Users/seijirom/Seafile/PTS06_2022_8/BGR_TEG/');
     try {
-	const {stdout, stderr} = await execa('ruby', ['-e puts "hello world from ruby"']);
+	const {stdout, stderr} = await execa('ruby', ['dio_sim.rb']);
 	console.log(stdout);
 	console.log(stderr);
     } catch (error) {
